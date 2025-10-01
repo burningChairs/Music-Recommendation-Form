@@ -1,10 +1,27 @@
+<!-- templates/home.html -->
 {% extends "layout.html" %}
 
-{% set active_page = "home" %}
-
-{% block title %}Home{% endblock %}
-
 {% block content %}
-    <!--page content-->
-    <h1>Home Page</h1>
+    <div class="text-center">
+        <h1>Music Genres</h1>
+        <p class="lead">Hi, I'm Ann Jordan! I love music since I have always used it as a form of expression and inspiration. Here's a few genres that I love the most.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <a href="{{ url_for('shoegaze') }}" class="genre-card shoegaze-card">
+                    <h3>Shoegaze</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{{ url_for('metal') }}" class="genre-card metal-card">
+                    <h3>Metal</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{{ url_for('emo') }}" class="genre-card emo-card">
+                    <h3>Emo</h3>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
