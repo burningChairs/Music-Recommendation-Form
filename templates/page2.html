@@ -46,4 +46,60 @@
     </div>
   </div>
 </div>
+
+<hr>
+<h4 class="mt-5">click the 🤘!</h4>
+<p>Click the 🤘 emoji as fast as you can!</p>
+<div id="metalGame"></div>
+<p class="mt-2">Headbangs hit: <strong id="metalScore">0</strong></p>
+
+<style>
+  #metalGame {
+    height: 200px;
+    background-color: #000000;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 0 12px #6f7a5f;
+  }
+
+  .headbang {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    color: #9ca896;
+  }
+
+  .headbang:hover {
+    transform: scale(1.4);
+  }
+</style>
+
+<script>
+  const metalGame = document.getElementById('metalGame');
+  const metalScore = document.getElementById('metalScore');
+  let scoreM = 0;
+
+  function spawnHeadbang() {
+    const emoji = document.createElement('div');
+    emoji.className = 'headbang';
+    emoji.textContent = '🤘';
+    emoji.style.top = Math.random() * 160 + 'px';
+    emoji.style.left = Math.random() * 370 + 'px';
+
+    emoji.onclick = () => {
+      scoreM++;
+      metalScore.textContent = scoreM;
+      emoji.remove();
+    };
+
+    metalGame.appendChild(emoji);
+    setTimeout(() => emoji.remove(), 1500);
+  }
+
+  setInterval(spawnHeadbang, 1000);
+</script>
+
 {% endblock %}

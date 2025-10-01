@@ -42,4 +42,60 @@
           <strong>Notable:</strong> Their track “If You Can’t Hang” became a scene anthem. Blending melodic vocals with post-hardcore energy.
         </p>
         <a href="https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx" class="btn btn-outline-light btn-sm" target="_blank">Listen on Spotify</a>
+      
+      <hr>
+<h4 class="mt-5">Heal the Hearts 💔❤️</h4>
+<p>Click the broken hearts to heal them!</p>
+<div id="heartGame"></div>
+<p class="mt-2">Hearts healed: <strong id="heartScore">0</strong></p>
+
+<style>
+  #heartGame {
+    height: 200px;
+    background-color: #6f7a5f;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 0 12px #151f11;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+  }
+
+  .heart:hover {
+    transform: scale(1.4);
+  }
+</style>
+
+<script>
+  const heartGame = document.getElementById('heartGame');
+  const heartScore = document.getElementById('heartScore');
+  let healed = 0;
+
+  function spawnHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '💔';
+    heart.style.top = Math.random() * 160 + 'px';
+    heart.style.left = Math.random() * 370 + 'px';
+
+    heart.onclick = () => {
+      heart.textContent = '❤️';
+      healed++;
+      heartScore.textContent = healed;
+      setTimeout(() => heart.remove(), 700);
+    };
+
+    heartGame.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+  }
+
+  setInterval(spawnHeart, 120
+
       </
