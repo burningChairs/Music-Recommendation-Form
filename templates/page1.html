@@ -46,4 +46,66 @@
     </div>
   </div>
 </div>
+
+<hr>
+<h4 class="mt-5">I Went Off Topic</h4>
+<p>Click the floating dots before your thoughts drift too far away!</p>
+<div id="gameArea"></div>
+<p class="mt-2">Distractions caught: <strong id="score">0</strong></p>
+
+<style>
+  #gameArea {
+    position: relative;
+    height: 200px;
+    background-color: #151f11;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px #6f7a5f;
+  }
+
+  .dot {
+    position: absolute;
+    background-color: #9ca896;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .dot:hover {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  let score = 0;
+  const gameArea = document.getElementById('gameArea');
+  const scoreDisplay = document.getElementById('score');
+
+  function spawnDot() {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.style.top = Math.random() * 160 + 'px';
+    dot.style.left = Math.random() * 370 + 'px';
+
+    dot.onclick = () => {
+      score++;
+      scoreDisplay.textContent = score;
+      gameArea.removeChild(dot);
+    };
+
+    gameArea.appendChild(dot);
+    setTimeout(() => {
+      if (dot.parentNode === gameArea) gameArea.removeChild(dot);
+    }, 2000);
+  }
+
+  setInterval(spawnDot, 1000);
+</script>
+
+
 {% endblock %}
