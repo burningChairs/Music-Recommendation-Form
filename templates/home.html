@@ -26,33 +26,69 @@
 
 <hr>
 
-<h2 class="mt-5">Tell me about your music tastes!</h2>
+<h2 class="mt-5">Tell me more about your music tastes!</h2>
 <p>Please review the genres above before filling out the form below.</p>
 
 <form method="POST" action="{{ url_for('home') }}">
+    <!-- Genres liked -->
     <div class="mb-3">
-        <label><strong>Which of the following genres do you like? (Select any)</strong></label><br>
+        <label><strong>Which genres do you like? (Select any)</strong></label><br>
         {% for genre in genres %}
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="liked_genres" id="genre_{{ loop.index }}" value="{{ genre }}">
+                <input class="form-check-input" type="checkbox" name="liked_genres" id="genre_{{ loop.index }}" value="{{ genre }}" {% if genre in form_data.liked_genres %}checked{% endif %}>
                 <label class="form-check-label" for="genre_{{ loop.index }}">{{ genre }}</label>
             </div>
         {% endfor %}
     </div>
 
+    <!-- Compelling artists -->
     <div class="mb-3">
         <label for="compelling_artists" class="form-label"><strong>Which artists did you find most compelling? (Optional)</strong></label>
-        <input type="text" class="form-control" id="compelling_artists" name="compelling_artists" placeholder="Artist names separated by commas">
+        <input type="text" class="form-control" id="compelling_artists" name="compelling_artists" placeholder="Artist names separated by commas" value="{{ form_data.compelling_artists|default('') }}">
     </div>
 
+    <!-- Already listened genres -->
     <div class="mb-3">
         <label for="listened_genres" class="form-label"><strong>What genres do you already listen to? (Select any)</strong></label>
         <select multiple class="form-select" id="listened_genres" name="listened_genres">
             {% for genre in listened_options %}
-                <option value="{{ genre }}">{{ genre }}</option>
+                <option value="{{ genre }}" {% if genre in form_data.listened_genres %}selected{% endif %}>{{ genre }}</option>
             {% endfor %}
         </select>
         <small class="form-text text-muted">Hold Ctrl (Cmd on Mac) to select multiple genres.</small>
+    </div>
+
+    <!-- Mood -->
+    <div class="mb-3">
+        <label for="mood" class="form-label"><strong>What mood do you usually prefer in music?</strong></label>
+        <select class="form-select" id="mood" name="mood">
+            <option value="" disabled selected>Select one</option>
+            {% for m in moods %}
+            <option value="{{ m }}" {% if form_data.mood == m %}selected{% endif %}>{{ m }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Favorite instrument -->
+    <div class="mb-3">
+        <label for="instrument" class="form-label"><strong>Favorite instrument or sound?</strong></label>
+        <select class="form-select" id="instrument" name="instrument">
+            <option value="" disabled selected>Select one</option>
+            {% for inst in instruments %}
+            <option value="{{ inst }}" {% if form_data.instrument == inst %}selected{% endif %}>{{ inst }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Favorite decade -->
+    <div class="mb-3">
+        <label for="decade" class="form-label"><strong>Which decade's music do you enjoy the most?</strong></label>
+        <select class="form-select" id="decade" name="decade">
+            <option value="" disabled selected>Select one</option>
+            {% for d in decades %}
+            <option value="{{ d }}" {% if form_data.decade == d %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+        </select>
     </div>
 
     <button type="submit" class="btn btn-primary">Get Recommendations</button>
@@ -60,7 +96,7 @@
 
 {% if recommendations %}
 <hr>
-<h3>Your Recommendations</h3>
+<h3>Your Personalized Recommendations</h3>
 <ul>
     {% for rec in recommendations %}
         <li>{{ rec }}</li>
