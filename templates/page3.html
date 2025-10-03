@@ -13,6 +13,14 @@
           <strong>Members:</strong> Vic Fuentes, Tony Perry, Jaime Preciado, Loniel Robinson (tour)<br>
           <strong>Notable:</strong> Their 2012 album <em>Collide with the Sky</em> features “King for a Day,” a modern emo classic.
         </p>
+        <img src="{{ url_for('static', filename='images/piercetheveil.jpeg') }}" alt="Pierce the Veil lineup" class="img-fluid rounded shadow mb-4 homepage-image">
+        <p class="text-center mt-2">
+ 		<a href="https://fearlessrecords.com/artists/pierce-the-veil/"
+     		target="_blank"
+     		class="custom-link">
+     		Pierce the veil source
+  		</a>
+		</p>
         <a href="https://open.spotify.com/artist/3CkvROUTQ6nRi9yQOcsB50" class="btn btn-outline-light btn-sm" target="_blank">Listen on Spotify</a>
       </div>
     </div>
@@ -27,6 +35,14 @@
           <strong>Members:</strong> Amy Lee, Tim McCord, Will Hunt, Troy McLawhorn, Emma Anzai<br>
           <strong>Notable:</strong> Their 2003 debut <em>Fallen</em> went multi-platinum. “Bring Me to Life” remains a genre-defining anthem.
         </p>
+        <img src="{{ url_for('static', filename='images/evanescence.jpg') }}" alt="Evanescence lineup" class="img-fluid rounded shadow mb-4 homepage-image">
+        <p class="text-center mt-2">
+ 		<a href="https://www.evanescence.com/news/evanescence-unleash-the-monsters-within-with-anti-facade-rocker-the-game-is-over/"
+     		target="_blank"
+     		class="custom-link">
+     		Evanescence source
+  		</a>
+		</p>
         <a href="https://open.spotify.com/artist/5nGIFgo0shDenQYSE0Sn7c" class="btn btn-outline-light btn-sm" target="_blank">Listen on Spotify</a>
       </div>
     </div>
@@ -41,8 +57,20 @@
           <strong>Members:</strong> Kellin Quinn, Nick Martin, Justin Hills, Matty Best<br>
           <strong>Notable:</strong> Their track “If You Can’t Hang” became a scene anthem. Blending melodic vocals with post-hardcore energy.
         </p>
+        <img src="{{ url_for('static', filename='images/sleepingwithsirens.jpg') }}" alt="Sleeping with Sirens lineup" class="img-fluid rounded shadow mb-4 homepage-image">
+        <p class="text-center mt-2">
+ 		<a href="https://open.spotify.com/artist/0yLwGBQiBqhXOvmTfH2A7n"
+     		target="_blank"
+     		class="custom-link">
+     		Sleeping with Sirens source
+  		</a>
+		</p>
         <a href="https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx" class="btn btn-outline-light btn-sm" target="_blank">Listen on Spotify</a>
-      
+      </div>
+    </div>
+  </div>
+</div>
+
 <hr>
 <h4 class="mt-5">Heal the Hearts 💔 - ❤️</h4>
 <p>Click the broken hearts to heal them!</p>
@@ -93,11 +121,12 @@
     };
 
     heartGame.appendChild(heart);
-    setTimeout(() => heart.remove(), 3000);
+    setTimeout(() => {
+      if (heart.parentNode === heartGame) heart.remove();
+    }, 3000);
   }
 
-  setInterval(spawnHeart, 120
-
-    </script>
+  setInterval(spawnHeart, 1200);
+</script>
 
 {% endblock %}

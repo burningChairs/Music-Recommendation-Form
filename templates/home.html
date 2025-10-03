@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="text-center">
-    <h1>Music Genres</h1>
-    <p class="lead">Hi, I'm Ann Jordan! I love music since I have always used it as a form of expression and inspiration. Here's a few genres that I love the most.</p>
+    <h1>Music Recommendations - Genres</h1>
+    <p class="lead">Hi, I'm Ann Jordan! I love music since I have always used it as a form of expression and inspiration. Here's a few genres that I love the most, please review them and then take this form to see what artist recommendations I would give to you.</p>
 
     <div class="row mt-4">
         <div class="col-md-4">
@@ -24,9 +24,18 @@
     </div>
 </div>
 
-<hr>
+<img src="{{ url_for('static', filename='images/cat.webp') }}" alt="Kitten with Headphones" class="img-fluid rounded shadow mb-4 homepage-image">
+ <p class="text-center mt-2">
+  <a href="https://www.redbubble.com/i/sticker/kitten-with-headphones-by-Swshi/147770403.EJUG5"
+     target="_blank"
+     class="custom-link">
+     Artwork by Swshi on Redbubble
+  </a>
+</p>
 
-<h2 class="mt-5">Tell me more about your music tastes!</h2>
+<hr>
+ 
+<h2 class="mt-5">Music Genre Form - For Recommendations</h2>
 <p>Please review the genres above before filling out the form below.</p>
 
 <form method="POST" action="{{ url_for('home') }}">
@@ -91,7 +100,7 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Get Recommendations</button>
+	<button type="submit" class="btn btn-green mt-3">Get Recommendations</button>
 </form>
 
 {% if recommendations %}
