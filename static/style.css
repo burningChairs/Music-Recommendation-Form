@@ -1,4 +1,40 @@
 /* General body and background */
+ /* Navbar styles */
+  .custom-navbar {
+    background-color: #000000;
+  }
+
+  .navbar-brand {
+    color: #9ca896 !important;
+    font-weight: 700;
+    text-shadow: 0 0 5px #6f7a5f;
+    transition: color 0.3s ease;
+    font-family: 'UnifrakturCook', cursive, serif;
+    font-size: 1.8rem;
+  }
+
+  .navbar-brand:hover {
+    color: #d4e157 !important;
+    text-shadow: 0 0 8px #cddc39;
+  }
+
+  .nav-link {
+    color: #9ca896 !important;
+    font-family: 'UnifrakturCook', cursive, serif;
+  }
+
+  .nav-link:hover {
+    color: #6f7a5f !important;
+  }
+  
+footer{
+  	text-align: center;
+  	color: #c4c9c3;
+  	background-color: #000000;
+  	margin-left: 200px;
+  	margin-right: 200px;
+  }
+
 body {
     background-color: #9ca896; /* lighter green background */
     color: #151f11; /* dark green text for contrast */
