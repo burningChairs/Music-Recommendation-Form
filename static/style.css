@@ -1,9 +1,10 @@
 /* General body and background */
- /* Navbar styles */
+/* Navbar styles */
   .custom-navbar {
     background-color: #000000;
   }
 
+  /* Styling navbar text */
   .navbar-brand {
     color: #9ca896 !important;
     font-weight: 700;
@@ -13,11 +14,13 @@
     font-size: 1.8rem;
   }
 
+  /*hovering to change color*/
   .navbar-brand:hover {
     color: #d4e157 !important;
     text-shadow: 0 0 8px #cddc39;
   }
 
+ /*link on navbar*/
   .nav-link {
     color: #9ca896 !important;
     font-family: 'UnifrakturCook', cursive, serif;
