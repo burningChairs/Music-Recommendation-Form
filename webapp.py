@@ -1,3 +1,14 @@
+#https://www.google.com/search?q=creating+a+personalized+response+to+a+form+on+html+and+python
+#https://www.google.com/search?q=how+to+create+lists+on+python+for+detailed+form+app+questions+with+various+responses
+#https://www.google.com/search?q=how+to+create+python+lists+with+responses+from+form
+#https://www.google.com/search?q=creating+short+lists+for+form+questions+in+python
+#https://www.google.com/search?q=creating+short+lists+for+form+questions+in+python
+#https://www.google.com/search?q=how+to+create+for+if+statements+in+python+for+form
+#https://www.google.com/search?q=how+to+create+if+not+return+in+python+for+a+form
+#https://www.google.com/search?q=how+to+create+return+in+python+for+form+data
+#https://www.google.com/search?q=how+to+create+if+return+in+python+with+data+from+form+response
+#https://www.google.com/search?q=using+%40app.route+in+python+for+form
+#https://www.google.com/search?q=using+def+in+python+for+if+return+and+return+statements+for+a+form
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
